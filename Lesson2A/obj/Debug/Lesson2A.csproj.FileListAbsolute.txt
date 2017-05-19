@@ -1,6 +1,0 @@
-C:\D\Projects\Fun\Codility\CodilityLessons\Lesson2A\obj\Debug\Lesson2A.csprojResolveAssemblyReference.cache
-C:\D\Projects\Fun\Codility\CodilityLessons\Lesson2A\bin\Debug\Lesson2A.exe.config
-C:\D\Projects\Fun\Codility\CodilityLessons\Lesson2A\bin\Debug\Lesson2A.exe
-C:\D\Projects\Fun\Codility\CodilityLessons\Lesson2A\bin\Debug\Lesson2A.pdb
-C:\D\Projects\Fun\Codility\CodilityLessons\Lesson2A\obj\Debug\Lesson2A.exe
-C:\D\Projects\Fun\Codility\CodilityLessons\Lesson2A\obj\Debug\Lesson2A.pdb
