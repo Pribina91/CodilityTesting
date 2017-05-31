@@ -9,6 +9,7 @@ namespace Lesson4A
     /// <summary>
     ///     PermCheck
     /// </summary>
+    [System.Runtime.InteropServices.Guid("71790733-CD91-4C2B-BC7A-666B7E7C905F")]
     class Program
     {
         static void Main(string[] args)
