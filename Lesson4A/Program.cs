@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Lesson4A
 {
+    /// <summary>
+    ///     PermCheck
+    /// </summary>
     class Program
     {
         static void Main(string[] args)
