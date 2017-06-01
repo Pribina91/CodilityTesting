@@ -12,6 +12,7 @@ namespace Lesson4D
     {
         static void Main(string[] args)
         {
+            Console.WriteLine(string.Join(",", new Program().solution(5, new[] {3, 4, 4, 6, 1, 4, 4})));
             Console.WriteLine(
                 string.Join(
                     ",",
@@ -19,7 +20,6 @@ namespace Lesson4D
                         2,
                         Enumerable.Repeat(2, 150000).Concat(Enumerable.Repeat(1, 150000)).ToArray())));
             Console.WriteLine(string.Join(",", new Program().solution(2, Enumerable.Repeat(3, 150000).ToArray())));
-            Console.WriteLine(string.Join(",", new Program().solution(5, new[] {3, 4, 4, 6, 1, 4, 4})));
             var randNum = new Random();
             Console.WriteLine(
                 string.Join(
@@ -51,7 +51,8 @@ namespace Lesson4D
                         Enumerable
                             .Repeat(0, 10000)
                             .Select(i => randNum.Next(1, 5))
-                            .ToArray()));
+                            .ToArray()),
+                    50);
             }
         }
 
@@ -65,14 +66,6 @@ namespace Lesson4D
             {
                 if (item == N + 1)
                 {
-                    var counterKeys = counters.Keys.AsParallel().ToArray();
-                    //clearing dictionary
-                    counters.Clear();
-                    foreach (var key in counterKeys)
-                    {
-                        counters.Add(key, maxCounter);
-                    }
-
                     lastMaxCounter = maxCounter;
                     continue;
                 }
@@ -80,6 +73,11 @@ namespace Lesson4D
                 if (!counters.ContainsKey(item))
                 {
                     counters.Add(item, lastMaxCounter);
+                }
+
+                if (counters[item] < lastMaxCounter)
+                {
+                    counters[item] = lastMaxCounter;
                 }
 
                 counters[item]++;
@@ -91,12 +89,13 @@ namespace Lesson4D
             }
 
             //generate final array from counters remebering last value of last max counter to fill gaps in array
-            var resultArray = Enumerable.Repeat(lastMaxCounter, N).ToArray();
-            foreach (var counter in counters)
+            var resultArray = new int[N];
+            for (int i = 0; i < N; i++)
             {
-                resultArray[counter.Key - 1] = counter.Value;
+                resultArray[i] = counters.ContainsKey(i + 1) && counters[i + 1] > lastMaxCounter
+                    ? counters[i + 1]
+                    : lastMaxCounter;
             }
-
             return resultArray;
         }
     }

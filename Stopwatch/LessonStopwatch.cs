@@ -15,10 +15,13 @@ namespace Stopwatch
             _stopwatch = new System.Diagnostics.Stopwatch();
         }
 
-        public void Execute(Action action)
+        public void Execute(Action action, int iterations)
         {
             _stopwatch.Restart();
-            action();
+            for (int i = 0; i < iterations; i++)
+            {
+                action();
+            }
             _stopwatch.Stop();
             Console.WriteLine(_stopwatch.ElapsedMilliseconds);
         }
